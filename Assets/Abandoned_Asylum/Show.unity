@@ -865,6 +865,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4317205912063148, guid: ac3fbd1bdf81a724fadb5e9ca1fb1857, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.48754263
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317205912063148, guid: ac3fbd1bdf81a724fadb5e9ca1fb1857, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5538211
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317205912063148, guid: ac3fbd1bdf81a724fadb5e9ca1fb1857, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1563
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317205912063148, guid: ac3fbd1bdf81a724fadb5e9ca1fb1857, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5138
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2204,7 +2220,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8604639024287645434, guid: beef3bcde1610f04aa96275436147bb9, type: 3}
   m_PrefabInstance: {fileID: 8606311150561899606}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &919135770
+--- !u!114 &919135775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2218,7 +2234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door: {fileID: 919135765}
   openRotation: 110
-  closedRotation: 20
+  closedRotation: 0
   speed: 3
   opening: 0
 --- !u!1 &935308837
@@ -4493,9 +4509,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8602318756928778468, guid: beef3bcde1610f04aa96275436147bb9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1.0095
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602318756928778468, guid: beef3bcde1610f04aa96275436147bb9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.021
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602318756928778468, guid: beef3bcde1610f04aa96275436147bb9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.006
+      objectReference: {fileID: 0}
     - target: {fileID: 8605160569769651574, guid: beef3bcde1610f04aa96275436147bb9, type: 3}
       propertyPath: m_Name
       value: Asylum
+      objectReference: {fileID: 0}
+    - target: {fileID: 8610845447379214468, guid: beef3bcde1610f04aa96275436147bb9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.028
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -4507,7 +4539,7 @@ PrefabInstance:
       addedObject: {fileID: 508572623}
     - targetCorrespondingSourceObject: {fileID: 8604639024287645434, guid: beef3bcde1610f04aa96275436147bb9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 919135770}
+      addedObject: {fileID: 919135775}
   m_SourcePrefab: {fileID: 100100000, guid: beef3bcde1610f04aa96275436147bb9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
