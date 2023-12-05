@@ -10,7 +10,7 @@ public class DirectionList : MonoBehaviour
     {
         // Ensure that the Text component is assigned in the Unity Editor
         // Attach the ClickHandler method to the button's onClick event
-        GetComponent<Button>().onClick.AddListener(ClickHandler);
+        //GetComponent<Button>().onClick.AddListener(ClickHandler);
     }
 
     public void ClickHandler()
