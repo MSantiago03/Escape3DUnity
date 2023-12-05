@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Mug1
+  - Mug2
+  - Mug3
+  - Mug4
   layers:
   - Default
   - TransparentFX
