@@ -34,7 +34,8 @@ public class Passcode : MonoBehaviour
         foreach (var chest in chests)
         {
             print("moving");
-            chest.transform.position = new Vector3(chest.transform.position.x, chest.transform.position.y, -9.0f);
+            print($"Original Position: {chest.transform.position}");  
+            chest.transform.position = new Vector3(chest.transform.position.x, chest.transform.position.y, chest.transform.position.z + 2.5f);
             print($"New Position: {chest.transform.position}");
         }
     }
