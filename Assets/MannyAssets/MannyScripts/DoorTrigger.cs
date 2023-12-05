@@ -5,9 +5,11 @@ using UnityEngine;
 public class DoorTrigger : MonoBehaviour
 {
     [SerializeField]
-    private Door DoorLeft;
+    private Door Door1;
     [SerializeField]
-    private Door DoorRight;
+    private Door Door2 = null;
+    [SerializeField]
+    int keyReq = 0;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,12 +17,14 @@ public class DoorTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             // Doors must be closed and player count must be greater than 0
-            if (!DoorLeft.IsOpen && !DoorRight.IsOpen && GameVariables.keyCount > 0)
+            if (!Door1.IsOpen && GameVariables.keyCount >= keyReq)
             {
-                DoorLeft.Open(other.transform.position);
-                DoorRight.Open(other.transform.position);
+                Door1.Open(other.transform.position);
+                if (Door2 != null)
+                {
+                    Door2.Open(other.transform.position); 
+                }
 
-                GameVariables.keyCount--;
             }
         }
     }

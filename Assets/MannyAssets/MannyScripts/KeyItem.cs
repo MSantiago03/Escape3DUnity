@@ -12,7 +12,7 @@ public class KeyItem : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             // Increase key amount in GameVariables by one and destroy key
-            GameVariables.keyCount += 2;
+            GameVariables.keyCount += 1;
             Destroy(gameObject);
         }
     }
