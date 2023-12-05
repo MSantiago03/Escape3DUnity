@@ -203,8 +203,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 182.32916, y: -122.2399}
-  m_SizeDelta: {x: 121.1155, y: 28.8101}
+  m_AnchoredPosition: {x: 208.64423, y: -153.1369}
+  m_SizeDelta: {x: 137.6827, y: 35.8167}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &454402876
 MonoBehaviour:
@@ -336,8 +336,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -190.85814, y: -122.2399}
-  m_SizeDelta: {x: 121.1155, y: 28.8101}
+  m_AnchoredPosition: {x: -215.59053, y: -153.1369}
+  m_SizeDelta: {x: 137.6827, y: 35.8167}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &568278334
 MonoBehaviour:
@@ -722,8 +722,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.3721, y: 28.5879}
-  m_SizeDelta: {x: 389.3912, y: 82.4694}
+  m_AnchoredPosition: {x: -1.3219, y: 34.3718}
+  m_SizeDelta: {x: 442.6553, y: 102.5257}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &838549422
 MonoBehaviour:
@@ -757,6 +757,10 @@ MonoBehaviour:
 
     Press ''P''
     : pause game
+
+
+
+
 
 
 
@@ -888,8 +892,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.3, y: -0.1163}
-  m_SizeDelta: {x: 682.4818, y: 482.294}
+  m_AnchoredPosition: {x: -0.1032, y: -1.3132}
+  m_SizeDelta: {x: 775.837, y: 599.5865}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &961733551
 MonoBehaviour:
@@ -1097,8 +1101,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -43.2485, y: 138.0114}
-  m_SizeDelta: {x: 293.2081, y: 45.9953}
+  m_AnchoredPosition: {x: -47.789673, y: 170.40681}
+  m_SizeDelta: {x: 333.3154, y: 57.1812}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1769796535
 MonoBehaviour:
