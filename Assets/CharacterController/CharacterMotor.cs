@@ -245,7 +245,7 @@ public class CharacterMotor : MonoBehaviour
 	
 		// Move our character!
 		movement.collisionFlags = controller.Move (currentMovementOffset);
-	
+
 		movement.lastHitPoint = movement.hitPoint;
 		lastGroundNormal = groundNormal;
 	

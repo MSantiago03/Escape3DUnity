@@ -9,24 +9,16 @@ public class Door : MonoBehaviour
     [Header("Rotation Configs")]
     [SerializeField]
     private float RotationAmount = 90f;
-    [SerializeField]
-    private float ForwardDirection = 0;
 
     private Vector3 StartRotation;
-    //private Vector3 StartPosition;
-    private Vector3 Forward;
-
     private Coroutine AnimationCoroutine;
 
     private void Awake()
     {
         StartRotation = transform.rotation.eulerAngles;
-        // Since "Forward" actually is pointing into the door frame, choose a direction to think about as "forward" 
-        Forward = transform.right;
-        //StartPosition = transform.position;
     }
 
-    public void Open(Vector3 UserPosition)
+    public void Open()
     {
         if (!IsOpen)
         {
@@ -34,27 +26,15 @@ public class Door : MonoBehaviour
             {
                 StopCoroutine(AnimationCoroutine);
             }
-            
-            float dot = Vector3.Dot(Forward, (UserPosition - transform.position).normalized);
-            Debug.Log($"Dot: {dot.ToString("N3")}");
-            AnimationCoroutine = StartCoroutine(DoRotationOpen(dot));
-            
+
+            AnimationCoroutine = StartCoroutine(DoRotationOpen(RotationAmount));
         }
     }
 
-    private IEnumerator DoRotationOpen(float ForwardAmount)
+    private IEnumerator DoRotationOpen(float rotationInput)
     {
         Quaternion startRotation = transform.rotation;
-        Quaternion endRotation;
-
-        if (ForwardAmount >= ForwardDirection)
-        {
-            endRotation = Quaternion.Euler(new Vector3(0, StartRotation.y + RotationAmount, 0));
-        }
-        else
-        {
-            endRotation = Quaternion.Euler(new Vector3(0, StartRotation.y - RotationAmount, 0));
-        }
+        Quaternion endRotation = Quaternion.Euler(new Vector3(StartRotation.x, StartRotation.y + rotationInput, StartRotation.z));
 
         IsOpen = true;
 
@@ -66,6 +46,4 @@ public class Door : MonoBehaviour
             time += Time.deltaTime * Speed;
         }
     }
-
-  
 }

@@ -6,14 +6,11 @@ using UnityEngine;
 // This should update when the user interacts with a key
 public class KeyItem : MonoBehaviour
 {
-    // When the key item is found
-    private void OnTriggerEnter(Collider other)
+
+    public void Take()
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            // Increase key amount in GameVariables by one and destroy key
-            GameVariables.keyCount += 2;
-            Destroy(gameObject);
-        }
+        GameVariables.keyCount++;
+        Destroy(gameObject);
     }
+
 }
