@@ -8,6 +8,7 @@ TagManager:
   - Mug2
   - Mug3
   - Mug4
+  - Statue
   layers:
   - Default
   - TransparentFX

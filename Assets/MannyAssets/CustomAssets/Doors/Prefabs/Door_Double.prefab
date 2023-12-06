@@ -121,8 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsOpen: 0
   Speed: 4
-  RotationAmount: 90
-  ForwardDirection: 0
+  RotationAmount: -90
 --- !u!1 &1544906312314775132
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,8 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsOpen: 0
   Speed: 4
-  RotationAmount: -90
-  ForwardDirection: 0
+  RotationAmount: 90
 --- !u!64 &5111731236586448940
 MeshCollider:
   m_ObjectHideFlags: 0

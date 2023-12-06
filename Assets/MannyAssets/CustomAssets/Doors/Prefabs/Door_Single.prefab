@@ -205,8 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsOpen: 0
   Speed: 1
-  RotationAmount: -90
-  ForwardDirection: 0
+  RotationAmount: 90
 --- !u!64 &2295844582772871316
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -19,10 +19,10 @@ public class DoorTrigger : MonoBehaviour
             // Doors must be closed and player count must be greater than 0
             if (!Door1.IsOpen && GameVariables.keyCount >= keyReq)
             {
-                Door1.Open(other.transform.position);
+                Door1.Open();
                 if (Door2 != null)
                 {
-                    Door2.Open(other.transform.position); 
+                    Door2.Open(); 
                 }
 
             }
