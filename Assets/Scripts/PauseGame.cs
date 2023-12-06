@@ -6,8 +6,11 @@ public class PauseGame : MonoBehaviour
 {
     public bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public AudioClip pauseSound; // Add this line for the pause sound
 
-
+    void Start()
+    {
+    }
 
     void Update()
     {
@@ -30,7 +33,7 @@ public class PauseGame : MonoBehaviour
                 {
                     eventSystem.enabled = true;
                 }
-            }    
+            }
         }
     }
 
@@ -38,6 +41,12 @@ public class PauseGame : MonoBehaviour
     {
         Time.timeScale = 0f;
         GameIsPaused = true;
+
+        // Play pause sound when pausing
+       
+       GetComponent<AudioSource>().Play();
+        
+
         // Show your pause menu UI (activate your canvas)
         pauseMenuUI.SetActive(true);
         // Disable scripts that should not run during pause (e.g., player movement scripts)

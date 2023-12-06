@@ -122,6 +122,7 @@ MonoBehaviour:
   IsOpen: 0
   Speed: 4
   RotationAmount: -90
+  doorOpenSound: {fileID: 8300000, guid: 231b80ee1295f4887b5f814332b96f4b, type: 3}
 --- !u!1 &1544906312314775132
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
   IsOpen: 0
   Speed: 4
   RotationAmount: 90
+  doorOpenSound: {fileID: 8300000, guid: 231b80ee1295f4887b5f814332b96f4b, type: 3}
 --- !u!64 &5111731236586448940
 MeshCollider:
   m_ObjectHideFlags: 0
