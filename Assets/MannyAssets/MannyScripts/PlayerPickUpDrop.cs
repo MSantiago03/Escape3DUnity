@@ -18,39 +18,49 @@ public class NewBehaviourScript : MonoBehaviour
     private DrawerController drawerController;
     private KeyItem keyItem;
 
+    [Header("Audio")]
+    [SerializeField]
+    public AudioClip pickUpSound;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        // Add an AudioSource component to the same GameObject as this script
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.E))
         {
-
             if (objectGrabbable == null)
             {
                 if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance))
                 {
-
                     if (raycastHit.transform.TryGetComponent(out objectGrabbable))
                     {
                         objectGrabbable.Grab(objectGrabPointTransform);
-                        Debug.Log(objectGrabbable);
+                        audioSource.PlayOneShot(pickUpSound);
                         Debug.Log("Object being picked up");
-
-
-                    } else if (raycastHit.transform.TryGetComponent(out keyItem))
+                    }
+                    else if (raycastHit.transform.TryGetComponent(out keyItem))
                     {
-                        Debug.Log("Raycast has hit key");
                         keyItem.Take();
+                        GetComponent<AudioSource>().Play();
+                        audioSource.PlayOneShot(pickUpSound);
+                        Debug.Log("Raycast has hit key");
                     }
                 }
-
-            } else
+            }
+            else
             {
                 Debug.Log("Object being released!");
                 objectGrabbable.Drop();
                 objectGrabbable = null;
             }
         }
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance))
@@ -60,14 +70,13 @@ public class NewBehaviourScript : MonoBehaviour
                     if (!drawerController.IsOpen)
                     {
                         drawerController.Pull();
-                    } else
+                    }
+                    else
                     {
                         drawerController.Close();
                     }
                 }
             }
         }
-
     }
-
 }

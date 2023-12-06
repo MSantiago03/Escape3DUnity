@@ -4,16 +4,16 @@ using UnityEngine.UI;
 
 public class Begin : MonoBehaviour
 {
+    private MusicController controller;
 
     void Start()
     {
-        // Ensure that the Text component is assigned in the Unity Editor
-        // Attach the ClickHandler method to the button's onClick event
-        //GetComponent<Button>().onClick.AddListener(LoadNewScene);
+        controller = GetComponent<MusicController>();
     }
 
     public void LoadNewScene()
     {
         SceneManager.LoadScene("Prison");
+        controller.stopMusic();
     }
 }
