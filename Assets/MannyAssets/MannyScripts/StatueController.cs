@@ -6,6 +6,12 @@ public class StatueController : MonoBehaviour
     private bool isMoving = false;
     private Vector3 initialPosition;
     private float moveDuration;
+    public GameObject textBoxPrefab; // Add a reference to your text box prefab
+
+    private void Start()
+    {
+        InvokeRepeating("GenerateTextBox", 1200f, 1200f); // Invoke GenerateTextBox every 1200 seconds (20 minutes)
+    }
 
     public void MoveStatueWithInput(float addedMoveDistanceX, float addedMoveDistanceZ, float moveDuration, float returnDelay)
     {
@@ -15,6 +21,7 @@ public class StatueController : MonoBehaviour
             this.moveDuration= moveDuration;
             StartCoroutine(MoveStatueCoroutine(addedMoveDistanceX, addedMoveDistanceZ, moveDuration, returnDelay));
         }
+
     }
 
     private IEnumerator MoveStatueCoroutine(float addedMoveDistanceX, float addedMoveDistanceZ, float moveDuration, float returnDelay)
@@ -49,5 +56,10 @@ public class StatueController : MonoBehaviour
 
         transform.position = initialPosition; // Ensure it reaches exactly the initial position
         isMoving = false;
+    }
+
+    private void GenerateTextBox()
+    {
+        textBoxPrefab.SetActive(true);
     }
 }
