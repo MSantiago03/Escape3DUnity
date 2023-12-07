@@ -12,8 +12,13 @@ public class Simon : MonoBehaviour
     public AudioClip winSound;
     public AudioClip loseSound;
     public AudioClip successSound;
+    public AudioClip startSound;
+    public AudioClip clickSound;
+
 
     public GameObject startButton;
+
+    private bool startDisable = false;
 
     public List<GameObject> buttons; // Change to GameObject list
 
@@ -33,6 +38,7 @@ public class Simon : MonoBehaviour
     private bool gameOver;
 
     private bool gameWon = false;
+
 
     void Start()
     {
@@ -75,12 +81,20 @@ public class Simon : MonoBehaviour
 
     public void StartGame()
     {
+        audioSource.PlayOneShot(startSound);
         gameOver = false;
         buttonsToClick.Clear();
         buttonsClicked.Clear();
+        StartCoroutine(EnableStartButtonAfterDelay(5f));
         StartCoroutine(StartNextRound());
-
     }
+
+private IEnumerator EnableStartButtonAfterDelay(float delay)
+{
+    startDisable = true;
+    yield return new WaitForSeconds(delay);
+    startDisable = false;
+}
 
     private void ListButtonCoroutines()
     {
@@ -113,6 +127,7 @@ public class Simon : MonoBehaviour
         Debug.Log("StartNext buttonsToClick[i]" + buttonsToClick[0]);
         foreach (int index in buttonsToClick)
         {
+            audioSource.PlayOneShot(clickSound);
             yield return StartCoroutine(ButtonHighlight(index));
             yield return new WaitForSeconds(0.5f);
         }
@@ -206,13 +221,14 @@ public class Simon : MonoBehaviour
         if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out hit, pickUpDistance))
         {
             // Check if the hit object is the start button
-            if (hit.collider.gameObject == startButton)
+            if (hit.collider.gameObject == startButton & startDisable == false)
             {
                 // If the hit object is the start button, start the game
                 StartGame();
             }
             if (hit.collider.CompareTag("SimonButton") && buttonsInteractable)
             {
+                
                 Debug.Log("Clicked on another button");
                 // If the hit object is one of the buttons, simulate a click
                 GameObject hitObject = hit.collider.gameObject;
