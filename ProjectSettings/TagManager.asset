@@ -10,6 +10,7 @@ TagManager:
   - Mug4
   - Statue
   - SimonButton
+  - Selectable
   layers:
   - Default
   - TransparentFX
