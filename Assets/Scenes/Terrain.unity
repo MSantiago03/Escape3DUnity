@@ -2035,7 +2035,7 @@ GameObject:
   - component: {fileID: 182435787}
   - component: {fileID: 182435786}
   m_Layer: 0
-  m_Name: YellowButton
+  m_Name: TanButton
   m_TagString: SimonButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3381,13 +3381,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290725545}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.04765004, y: -0, z: -0, w: 0.9988641}
   m_LocalPosition: {x: 168.2, y: 37.777702, z: 42.2}
   m_LocalScale: {x: 83.62645, y: 28.410976, z: 0.2572}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.462, y: 0, z: 0}
 --- !u!1 &291045391
 GameObject:
   m_ObjectHideFlags: 0
@@ -3819,7 +3819,7 @@ Transform:
   m_GameObject: {fileID: 313413324}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 137.36, y: 33.6, z: 93.95}
+  m_LocalPosition: {x: 141.39, y: 33.6, z: 95.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3837,9 +3837,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc4f7dc1990b4792b95461d1ec4e780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonSounds: []
-  winSound: {fileID: 8300000, guid: 08dfc318f12184080b92f7ae39c11980, type: 3}
-  loseSound: {fileID: 0}
+  winSound: {fileID: 8300000, guid: d30d251ddf08c4111814f85133f0ae4a, type: 3}
+  loseSound: {fileID: 8300000, guid: 4bd7ac7af083b40e4941fd4543c9e778, type: 3}
+  successSound: {fileID: 8300000, guid: 7bcea7babba3448c396eef8cb663ee84, type: 3}
+  startSound: {fileID: 8300000, guid: 0835f9492561040e6921da8e859229bd, type: 3}
+  clickSound: {fileID: 8300000, guid: 51a5a02cfa9d14de28c486d5ba86a317, type: 3}
   startButton: {fileID: 313413324}
   buttons:
   - {fileID: 1300665709}
@@ -12379,7 +12381,7 @@ GameObject:
   - component: {fileID: 1300665711}
   - component: {fileID: 1300665710}
   m_Layer: 0
-  m_Name: GreenButton
+  m_Name: YellowButton
   m_TagString: SimonButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18040,7 +18042,7 @@ GameObject:
   - component: {fileID: 1900447464}
   - component: {fileID: 1900447463}
   m_Layer: 0
-  m_Name: BlueButton
+  m_Name: PurpleButton
   m_TagString: SimonButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20363,7 +20365,7 @@ GameObject:
   - component: {fileID: 2094987157}
   - component: {fileID: 2094987156}
   m_Layer: 0
-  m_Name: RedButton
+  m_Name: OrangeButton
   m_TagString: SimonButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
