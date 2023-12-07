@@ -15,6 +15,7 @@ public class Simon : MonoBehaviour
     public AudioClip startSound;
     public AudioClip clickSound;
 
+    public GameObject textBoxPrefab; // Add a reference to your text box prefab
 
     public GameObject startButton;
 
@@ -43,6 +44,7 @@ public class Simon : MonoBehaviour
     void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
+        InvokeRepeating("GenerateTextBox", 1800f, 1800f); // Invoke GenerateTextBox every 1800 seconds (30 minutes)
     }
 
     public void CreatePlayerList(int buttonID)
@@ -242,6 +244,14 @@ private IEnumerator EnableStartButtonAfterDelay(float delay)
                     CreatePlayerList(buttonIndex);
                 }
             }
+        }
+    }
+
+    private void GenerateTextBox()
+    {
+        if (!gameWon)
+        {
+            textBoxPrefab.SetActive(true);
         }
     }
 }
