@@ -863,26 +863,26 @@ MonoBehaviour:
     move around up, down, left, or right
 
 
-    Press ''E'' : pick up and drop items
+    Press ''E'' : pick up/select and drop
+    items
 
 
-    Press
-    ''P'' : pause game
+    Press ''P'' : pause game and access passcode
 
 
-    Press ''Q'' : open drawers
-
-
-
-
+    Press ''Q'' :
+    open drawers
 
 
 
 
 
 
-    find your way
-    out... good luck'
+
+
+
+
+    find your way out... good luck'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

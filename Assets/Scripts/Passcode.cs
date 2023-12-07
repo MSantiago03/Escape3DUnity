@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class Passcode : MonoBehaviour
     public GameObject[] chests;
     public float moveDistance = 10.0f;
     public float moveSpeed = 20.0f;
+    public GameObject success;
 
     public void CodeFunction(string Numbers)
     {
@@ -20,12 +22,14 @@ public class Passcode : MonoBehaviour
     {
         if (Nr == Code)
         {
-            print("Success");
+            success.SetActive(true);
             MoveChests();
+            UiText.color = Color.green;
         }
         else
         {
             print("Incorrect code. Try again.");
+            UiText.color = Color.red;
         }
     }
 
@@ -44,6 +48,7 @@ public class Passcode : MonoBehaviour
     {
         Nr = null;
         UiText.text = Nr;
+        UiText.color = Color.white;
     }
 }
 
