@@ -44,7 +44,8 @@ public class MouseLook : MonoBehaviour
 
 	void Update()
 	{
-		if (!pauseManager.getGameIsPaused())
+		//if (!pauseManager.getGameIsPaused())
+		// commented this line out so that I (Joey) could use this script in my Terrain scene without it breaking. 
 		{
 			if (axes == RotationAxes.MouseXAndY)
 			{

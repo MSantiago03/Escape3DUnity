@@ -9,6 +9,7 @@ TagManager:
   - Mug3
   - Mug4
   - Statue
+  - SimonButton
   layers:
   - Default
   - TransparentFX
