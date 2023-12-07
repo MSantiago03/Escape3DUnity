@@ -3,30 +3,25 @@ using UnityEngine;
 
 public class StatueController : MonoBehaviour
 {
-    [SerializeField]
-    private float moveDistance;
-    [SerializeField]
-    private float moveDuration;
-    [SerializeField]
-    private float returnDelay; // Delay before returning
-
     private bool isMoving = false;
     private Vector3 initialPosition;
+    private float moveDuration;
 
-    public void MoveStatue()
+    public void MoveStatueWithInput(float addedMoveDistanceX, float addedMoveDistanceZ, float moveDuration, float returnDelay)
     {
         if (!isMoving)
         {
             initialPosition = transform.position; // Store initial position
-            isMoving = true;
-            StartCoroutine(MoveX());
+            this.moveDuration= moveDuration;
+            StartCoroutine(MoveStatueCoroutine(addedMoveDistanceX, addedMoveDistanceZ, moveDuration, returnDelay));
         }
     }
 
-    private IEnumerator MoveX()
+    private IEnumerator MoveStatueCoroutine(float addedMoveDistanceX, float addedMoveDistanceZ, float moveDuration, float returnDelay)
     {
+        isMoving = true;
         float elapsedTime = 0f;
-        Vector3 targetPosition = initialPosition + Vector3.right * moveDistance;
+        Vector3 targetPosition = initialPosition + new Vector3(addedMoveDistanceX, 0f, addedMoveDistanceZ);
 
         while (elapsedTime < moveDuration)
         {
