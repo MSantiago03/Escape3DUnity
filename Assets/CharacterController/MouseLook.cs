@@ -44,7 +44,7 @@ public class MouseLook : MonoBehaviour
 
 	void Update()
 	{
-		//if (!pauseManager.getGameIsPaused())
+		if (!pauseManager.getGameIsPaused())
 		// commented this line out so that I (Joey) could use this script in my Terrain scene without it breaking. 
 		{
 			if (axes == RotationAxes.MouseXAndY)
@@ -68,8 +68,6 @@ public class MouseLook : MonoBehaviour
 				transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
 			}
 
-			// who the hell programmed this? -> blame
-			//someObjectThatsNotAssigned.name = "ThisCausesAnError";
 		}
 	}
 

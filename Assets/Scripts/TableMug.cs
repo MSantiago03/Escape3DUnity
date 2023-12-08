@@ -15,7 +15,7 @@ public class TableMug : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("GenerateTextBox", 5f, 5f); // Invoke GenerateTextBox every 600 seconds (10 minutes)
+        InvokeRepeating("GenerateTextBox", 600f, 600f); // Invoke GenerateTextBox every 600 seconds (10 minutes)
     }
 
     private void OnTriggerEnter(Collider other)
