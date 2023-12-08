@@ -12,11 +12,15 @@ public class FPSInputController : MonoBehaviour
     public AudioClip walkingSound;
     public AudioClip jumpingSound;
 
+    private Collider myCollider;
+
     // Use this for initialization
     void Awake()
     {
         motor = GetComponent<CharacterMotor>();
         audioSource = GetComponent<AudioSource>();
+        myCollider = gameObject.GetComponent<Collider>();
+
     }
 
     // Update is called once per frame

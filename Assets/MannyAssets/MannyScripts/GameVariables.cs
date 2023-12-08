@@ -5,8 +5,6 @@ using UnityEngine;
 public class GameVariables : MonoBehaviour
 {
     public static int keyCount = 0;
-
-    // I can potentially store checkpoints here?
-
+    public static int lives = 3;
 
 }
