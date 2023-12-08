@@ -34,7 +34,7 @@ public class SelectableObject : MonoBehaviour
         {
             newHighlight = hit.transform;
 
-            if (newHighlight.GetComponent<SelectableObject1>() != null)
+            if (newHighlight.GetComponent<AttachToHighlight>() != null)
             {
                 if (newHighlight.GetComponent<MeshRenderer>().material != highlightMaterial)
                 {
