@@ -315,6 +315,7 @@ MonoBehaviour:
   Door1: {fileID: 2969871821327775072}
   Door2: {fileID: 1809775145585656926}
   keyReq: 2
+  sign: {fileID: 0}
 --- !u!1 &5370899043810270341
 GameObject:
   m_ObjectHideFlags: 0

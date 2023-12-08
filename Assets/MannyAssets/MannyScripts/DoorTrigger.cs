@@ -10,11 +10,20 @@ public class DoorTrigger : MonoBehaviour
     private Door Door2 = null;
     [SerializeField]
     int keyReq = 0;
+    [SerializeField]
+    GameObject sign;
+
+    private bool notDone = true;
+
+    private void Start()
+    {
+        sign.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         // Object that enters the collider must be player to open door
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && notDone)
         {
             // Doors must be closed and player count must be greater than 0
             if (!Door1.IsOpen && GameVariables.keyCount >= keyReq)
@@ -24,7 +33,12 @@ public class DoorTrigger : MonoBehaviour
                 {
                     Door2.Open(); 
                 }
+                notDone = false;
+                Destroy(sign);
 
+            } else
+            {
+                sign.SetActive(true);
             }
         }
     }

@@ -10,8 +10,12 @@ public class GhostControllerAi : MonoBehaviour
     // Range within which to start chasing the target
     public float chaseRange = 10f; 
 
+    //used to allow ghost to move
+    public bool isSummoned = false;
+
     private NavMeshAgent agent;
     private int currentPatrolIndex = 0;
+    
 
     private void Start()
     {
@@ -26,21 +30,28 @@ public class GhostControllerAi : MonoBehaviour
 
     private void Update()
     {
-        // Check if the target is within chase range
-        if (target != null)
+        if (isSummoned)
         {
-            float distanceToTarget = Vector3.Distance(transform.position, target.position);
-            // if target is within distance - chase
-            if (distanceToTarget <= chaseRange)
+            Debug.Log(isSummoned);
+            Debug.Log("The bool worked");
+            // Check if the target is within chase range
+            if (target != null)
             {
-                ChaseTarget();
-            }
-            // else chase between provided points
-            else
-            {
-                Patrol();
+                float distanceToTarget = Vector3.Distance(transform.position, target.position);
+                // if target is within distance - chase
+                if (distanceToTarget <= chaseRange)
+                {
+                    ChaseTarget();
+                }
+                // else chase between provided points
+                else
+                {
+                    Patrol();
+                }
             }
         }
+
+        
     }
 
     private void ChaseTarget()
