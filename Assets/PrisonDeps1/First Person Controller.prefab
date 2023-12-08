@@ -33,8 +33,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4317205912063148}
   - {fileID: 4965389348437804}
+  - {fileID: 4317205912063148}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &143802948991473252
@@ -94,6 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de41ee9d0909f4f4a8110d91a01352ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkingSound: {fileID: 0}
+  jumpingSound: {fileID: 0}
 --- !u!114 &114594265029555900
 MonoBehaviour:
   m_ObjectHideFlags: 0

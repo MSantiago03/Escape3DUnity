@@ -7,7 +7,7 @@ public class SelectableObject : MonoBehaviour
     public Material highlightMaterial;
 
     private Material originalMaterialHighlight;
-    private Transform lastHighlightedObject;
+    private Transform newHighlight;
     private float pickUpDistance = 4f;
 
     [SerializeField]
@@ -15,34 +15,41 @@ public class SelectableObject : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("newHighilght " + newHighlight);
         // Revert the material for the last highlighted object
-        if (lastHighlightedObject != null)
+        if (newHighlight != null)
         {
-            Renderer renderer = lastHighlightedObject.GetComponent<Renderer>();
+            Renderer renderer = newHighlight.GetComponent<Renderer>();
             if (renderer != null)
             {
                 renderer.material = originalMaterialHighlight;
+                newHighlight = null;
             }
-            lastHighlightedObject = null;
+            
         }
 
         RaycastHit hit;
 
         if (Physics.Raycast(playerCamera1.position, playerCamera1.forward, out hit, pickUpDistance))
         {
-            Transform newHighlight = hit.transform;
+            newHighlight = hit.transform;
 
-            if (newHighlight.GetComponent<SelectableObject>() != null)
+            if (newHighlight.GetComponent<SelectableObject1>() != null)
             {
                 if (newHighlight.GetComponent<MeshRenderer>().material != highlightMaterial)
                 {
                     originalMaterialHighlight = newHighlight.GetComponent<MeshRenderer>().material;
+                    //Debug.Log("original " + originalMaterialHighlight);
                     newHighlight.GetComponent<MeshRenderer>().material = highlightMaterial;
 
-                    // Update the last highlighted object
-                    lastHighlightedObject = newHighlight;
                 }
             }
+            else
+            {
+                newHighlight = null;
+            }
         }
+        
     }
 }
+
