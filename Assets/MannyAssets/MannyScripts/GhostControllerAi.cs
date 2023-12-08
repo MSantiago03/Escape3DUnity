@@ -15,7 +15,8 @@ public class GhostControllerAi : MonoBehaviour
 
     private NavMeshAgent agent;
     private int currentPatrolIndex = 0;
-    
+
+    public AudioSource audioSource;
 
     private void Start()
     {
@@ -26,12 +27,14 @@ public class GhostControllerAi : MonoBehaviour
         {
             agent.SetDestination(patrolPoints[currentPatrolIndex].position);
         }
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
         if (isSummoned)
         {
+            audioSource.Play();
             Debug.Log(isSummoned);
             Debug.Log("The bool worked");
             // Check if the target is within chase range
@@ -50,8 +53,10 @@ public class GhostControllerAi : MonoBehaviour
                 }
             }
         }
+        else {
+            audioSource.Stop();
+        }
 
-        
     }
 
     private void ChaseTarget()

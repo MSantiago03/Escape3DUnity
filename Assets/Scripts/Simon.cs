@@ -40,6 +40,8 @@ public class Simon : MonoBehaviour
 
     private bool gameWon = false;
 
+    public GameObject letter;
+
 
     void Start()
     {
@@ -117,6 +119,7 @@ private IEnumerator EnableStartButtonAfterDelay(float delay)
         buttonsInteractable = false;
         audioSource.PlayOneShot(successSound);
         ListButtonCoroutines();
+        textBoxPrefab.SetActive(true);
     }
 
     public IEnumerator StartNextRound()
