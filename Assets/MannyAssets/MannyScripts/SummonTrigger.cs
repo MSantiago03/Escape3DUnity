@@ -42,8 +42,8 @@ public class SummonTrigger : MonoBehaviour
         {
             // Activating ghost movement
             ghost.GetComponent<GhostControllerAi>().isSummoned = true;
-            Debug.Log("Trigger Enter and isSummoned state:");
-            Debug.Log(ghost.GetComponent<GhostControllerAi>().isSummoned = true);
+            Debug.Log("Trigger Enter and isSummoned state: " + ghost.GetComponent<GhostControllerAi>().isSummoned);
+            
             // Show the ghost and start the timer
             ghost.SetActive(true);
             ghostIsPresent = true;

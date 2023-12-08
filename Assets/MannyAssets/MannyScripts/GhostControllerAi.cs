@@ -21,13 +21,14 @@ public class GhostControllerAi : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
 
         // Start patrolling if patrolPoints array has elements
         if (patrolPoints.Length > 0)
         {
             agent.SetDestination(patrolPoints[currentPatrolIndex].position);
         }
-        audioSource = GetComponent<AudioSource>();
+        
     }
 
     private void Update()
