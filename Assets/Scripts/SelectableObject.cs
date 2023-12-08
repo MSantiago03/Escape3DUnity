@@ -7,7 +7,7 @@ public class SelectableObject : MonoBehaviour
     public Material highlightMaterial;
 
     private Material originalMaterialHighlight;
-    private Transform highlight;
+    private Transform lastHighlightedObject;
     private float pickUpDistance = 4f;
 
     [SerializeField]
@@ -15,29 +15,33 @@ public class SelectableObject : MonoBehaviour
 
     void Update()
     {
-        // Highlight
-        if (highlight != null)
+        // Revert the material for the last highlighted object
+        if (lastHighlightedObject != null)
         {
-            highlight.GetComponent<MeshRenderer>().sharedMaterial = originalMaterialHighlight;
-            highlight = null;
+            Renderer renderer = lastHighlightedObject.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                renderer.material = originalMaterialHighlight;
+            }
+            lastHighlightedObject = null;
         }
 
         RaycastHit hit;
 
         if (Physics.Raycast(playerCamera1.position, playerCamera1.forward, out hit, pickUpDistance))
         {
-            highlight = hit.transform;
-            if (highlight.GetComponent<SelectableObject>() != null)
+            Transform newHighlight = hit.transform;
+
+            if (newHighlight.GetComponent<SelectableObject>() != null)
             {
-                if (highlight.GetComponent<MeshRenderer>().material != highlightMaterial)
+                if (newHighlight.GetComponent<MeshRenderer>().material != highlightMaterial)
                 {
-                    originalMaterialHighlight = highlight.GetComponent<MeshRenderer>().material;
-                    highlight.GetComponent<MeshRenderer>().material = highlightMaterial;
+                    originalMaterialHighlight = newHighlight.GetComponent<MeshRenderer>().material;
+                    newHighlight.GetComponent<MeshRenderer>().material = highlightMaterial;
+
+                    // Update the last highlighted object
+                    lastHighlightedObject = newHighlight;
                 }
-            }
-            else
-            {
-                highlight = null;
             }
         }
     }
