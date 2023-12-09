@@ -43,9 +43,9 @@ public class PauseGame : MonoBehaviour
         GameIsPaused = true;
 
         // Play pause sound when pausing
-       
-       GetComponent<AudioSource>().Play();
-        
+
+        AudioSource.PlayClipAtPoint(pauseSound, Camera.main.transform.position);
+
 
         // Show your pause menu UI (activate your canvas)
         pauseMenuUI.SetActive(true);

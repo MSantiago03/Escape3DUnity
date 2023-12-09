@@ -15,7 +15,7 @@ public class SelectableObject : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("newHighilght " + newHighlight);
+        
         // Revert the material for the last highlighted object
         if (newHighlight != null)
         {
