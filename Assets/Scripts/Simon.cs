@@ -25,22 +25,16 @@ public class Simon : MonoBehaviour
 
     [SerializeField]
     private Transform playerCameraTransform;
-    [SerializeField]
-    private Transform objectGrabPointTransform;
-    [SerializeField]
-    private LayerMask pickUpLayerMask;
-    [SerializeField]
+    
     private float pickUpDistance = 4f;
 
     private bool buttonsInteractable = false;
 
-    private int numberToWin = 7;
+    private int numberToWin = 8;
 
     private bool gameOver;
 
     private bool gameWon = false;
-
-    public GameObject letter;
 
 
     void Start()
