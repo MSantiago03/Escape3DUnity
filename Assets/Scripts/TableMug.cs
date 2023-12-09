@@ -15,6 +15,7 @@ public class TableMug : MonoBehaviour
 
     private void Start()
     {
+        letter.SetActive(false);
         InvokeRepeating("GenerateTextBox", 600f, 600f); // Invoke GenerateTextBox every 600 seconds (10 minutes)
     }
 
@@ -53,6 +54,7 @@ public class TableMug : MonoBehaviour
         {
             // Generate a new text box
             textBoxPrefab.SetActive(true);
+           
         }
     }
 }

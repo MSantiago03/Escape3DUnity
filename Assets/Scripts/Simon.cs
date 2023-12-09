@@ -36,9 +36,11 @@ public class Simon : MonoBehaviour
 
     private bool gameWon = false;
 
+    public GameObject letter;
 
     void Start()
     {
+        letter.SetActive(false);
         audioSource = gameObject.AddComponent<AudioSource>();
         InvokeRepeating("GenerateTextBox", 1800f, 1800f); // Invoke GenerateTextBox every 1800 seconds (30 minutes)
     }
@@ -112,6 +114,7 @@ private IEnumerator EnableStartButtonAfterDelay(float delay)
         gameWon = true;
         buttonsInteractable = false;
         audioSource.PlayOneShot(successSound);
+        letter.SetActive(true);
         ListButtonCoroutines();
         textBoxPrefab.SetActive(true);
     }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Passcode : MonoBehaviour
 {
-    string Code = "581";
+    string Code = "9382";
     string Nr = null;
     public Text UiText = null;
     public GameObject[] chests;
