@@ -45505,6 +45505,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8698537366688169299, guid: df4695cb8496a4fe4a67be3d0f9440cc, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 8698537366688169299, guid: df4695cb8496a4fe4a67be3d0f9440cc, type: 3}
       propertyPath: m_Name
       value: GhostSummon (2)
       objectReference: {fileID: 0}
