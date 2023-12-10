@@ -16,7 +16,7 @@ public class TableMug : MonoBehaviour
     private void Start()
     {
         letter.SetActive(false);
-        InvokeRepeating("GenerateTextBox", 600f, 600f); // Invoke GenerateTextBox every 600 seconds (10 minutes)
+        InvokeRepeating("GenerateTextBox", 300f, 300f); // Invoke GenerateTextBox every 300 seconds (5 minutes)
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,6 +45,7 @@ public class TableMug : MonoBehaviour
         if (mugCount == 4)
         {
             letter.SetActive(true);
+            textBoxPrefab.SetActive(false);
         }
     }
 
@@ -52,9 +53,7 @@ public class TableMug : MonoBehaviour
     {
         if (mugCount < 4)
         {
-            // Generate a new text box
             textBoxPrefab.SetActive(true);
-           
         }
     }
 }

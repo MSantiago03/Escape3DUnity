@@ -10,7 +10,7 @@ public class StatueController : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("GenerateTextBox", 1200f, 1200f); // Invoke GenerateTextBox every 1200 seconds (20 minutes)
+        InvokeRepeating("GenerateTextBox", 600f, 600f); // Invoke GenerateTextBox every 1200 seconds (20 minutes)
     }
 
     public void MoveStatueWithInput(float addedMoveDistanceX, float addedMoveDistanceZ, float moveDuration, float returnDelay)
@@ -40,6 +40,8 @@ public class StatueController : MonoBehaviour
         transform.position = targetPosition;
         yield return new WaitForSeconds(returnDelay);
         StartCoroutine(ReturnToOriginalPosition());
+        textBoxPrefab.SetActive(false);
+
     }
 
     private IEnumerator ReturnToOriginalPosition()
