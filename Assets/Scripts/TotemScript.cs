@@ -62,7 +62,7 @@ public class TotemScript : MonoBehaviour
 
     private void SpawnNumber()
     {
-
+        lastDestroyedTotemPosition = lastDestroyedTotemPosition + new Vector3(0, 2, 0);
         number4.SetActive(true);
         number4.transform.position = lastDestroyedTotemPosition;
     }
