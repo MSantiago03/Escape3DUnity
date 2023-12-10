@@ -42,20 +42,17 @@ public class NewBehaviourScript : MonoBehaviour
                     {
                         objectGrabbable.Grab(objectGrabPointTransform);
                         audioSource.PlayOneShot(pickUpSound);
-                        Debug.Log("Object being picked up");
                     }
                     else if (raycastHit.transform.TryGetComponent(out keyItem))
                     {
                         keyItem.Take();
                         GetComponent<AudioSource>().Play();
                         audioSource.PlayOneShot(pickUpSound);
-                        Debug.Log("Raycast has hit key");
                     }
                 }
             }
             else
             {
-                Debug.Log("Object being released!");
                 objectGrabbable.Drop();
                 objectGrabbable = null;
             }
