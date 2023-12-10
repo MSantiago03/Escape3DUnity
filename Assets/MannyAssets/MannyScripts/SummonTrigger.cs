@@ -6,8 +6,9 @@ public class SummonTrigger : MonoBehaviour
     private GameObject ghost;
     [SerializeField]
     private float presenceLength = 5f; // Set the default presence length to 5 seconds
-    [SerializeField]
-    public AudioSource audioSource;
+
+
+    //public AudioSource audioSource;
 
     private bool ghostIsPresent = false;
     private Vector3 originalPosition;
@@ -33,8 +34,10 @@ public class SummonTrigger : MonoBehaviour
             {
                 // Timer has run out, reseting ghost, and stopping music
                 ghost.GetComponent<GhostControllerAi>().isSummoned = false;
+                ghost.GetComponent<GhostControllerAi>().isMusicOn = false;
+                ghost.GetComponent<GhostControllerAi>().isFrozen = false;
                 ResetGhost();
-                audioSource.Stop();
+                
             }
         }
     }
@@ -52,8 +55,8 @@ public class SummonTrigger : MonoBehaviour
             ghost.SetActive(true);
             ghostIsPresent = true;
             timer = 0f;
-            audioSource = GetComponent<AudioSource>();
-            audioSource.Play();
+            //audioSource = GetComponent<AudioSource>();
+            //audioSource.Play();
         }
     }
 

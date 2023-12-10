@@ -22,7 +22,15 @@ public class DrawerController : MonoBehaviour
     {
         StartPosition = transform.position;
         EndPosition = StartPosition + transform.forward * PullDistance;
+
+        // If the drawer should start open, set its position to EndPosition
+        if (IsOpen)
+        {
+            transform.position = EndPosition;
+        }
     }
+
+
 
     public void Pull()
     {
