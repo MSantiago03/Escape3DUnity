@@ -54,7 +54,7 @@ public class TotemScript : MonoBehaviour
                 Destroy(hit.collider.gameObject);
             }
 
-            if (numTotem == 1)
+            if (numTotem == 4)
             {
                 SpawnNumber();
             }
