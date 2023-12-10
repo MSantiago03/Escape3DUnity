@@ -57,8 +57,6 @@ public class TotemScript : MonoBehaviour
             {
                 SpawnNumber();
             }
-
-
         }
     }
 
