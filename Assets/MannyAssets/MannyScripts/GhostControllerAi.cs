@@ -98,7 +98,7 @@ public class GhostControllerAi : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && !isFrozen)
         {
-            GameVariables.LoseLife();
+            GameVariables.lives -= 1;
 
             // Freeze the ghost for a specified amount of time
             StartCoroutine(FreezeForSeconds(seconds));

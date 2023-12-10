@@ -8,36 +8,27 @@ public class PlayerHealth : MonoBehaviour
     public GameObject heart3;
     public GameObject heart4;
 
-    
-    public void updateHearts()
+
+    private void Update()
     {
-        if (GameVariables.lives == 4)
+        // This 
+        if (GameVariables.lives == 3)
         {
             heart1.SetActive(false);
         }
-        else if (GameVariables.lives == 3)
+        else if (GameVariables.lives == 2)
         {
             heart2.SetActive(false);
         }
-        else if (GameVariables.lives == 2)
-        {
-            heart3.SetActive(false);
-        }
         else if (GameVariables.lives == 1)
         {
-            heart4.SetActive(false);
+            heart3.SetActive(false);
         }
         else if (GameVariables.lives <= 0)
         {
             SceneManager.LoadScene("Prison");
-        }
-    }
+            GameVariables.lives = 4;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            updateHearts();
         }
     }
 }
