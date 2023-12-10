@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,15 +9,23 @@ public class GhostControllerAi : MonoBehaviour
     // Waypoints for patrolling
     public Transform[] patrolPoints;
     // Range within which to start chasing the target
-    public float chaseRange = 10f; 
+    public float chaseRange = 10f;
+    // Audio Clip
+    public AudioSource audioSource;
+
+    // Seconds Ghost is frozen for
+    public float seconds = 4; 
 
     //used to allow ghost to move
     public bool isSummoned = false;
+    // Used to to play audio clip
+    public bool isMusicOn = false;
+    //used to freeze the ghost
+    public bool isFrozen = false;
 
     private NavMeshAgent agent;
     private int currentPatrolIndex = 0;
-
-
+    
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -26,18 +35,23 @@ public class GhostControllerAi : MonoBehaviour
         {
             agent.SetDestination(patrolPoints[currentPatrolIndex].position);
         }
-        
     }
 
     private void Update()
     {
-        if (isSummoned)
+        if (isSummoned && !isFrozen)
         {
-            Debug.Log(isSummoned);
-            Debug.Log("The bool worked");
             // Check if the target is within chase range
             if (target != null)
             {
+                //play music
+                if (!isMusicOn)
+                {
+                    isMusicOn = true;
+                    audioSource = GetComponent<AudioSource>();
+                    audioSource.Play();
+                }
+
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
                 // if target is within distance - chase
                 if (distanceToTarget <= chaseRange)
@@ -51,10 +65,6 @@ public class GhostControllerAi : MonoBehaviour
                 }
             }
         }
-        else {
-            
-        }
-
     }
 
     private void ChaseTarget()
@@ -84,4 +94,23 @@ public class GhostControllerAi : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player") && !isFrozen)
+        {
+            GameVariables.LoseLife();
+
+            // Freeze the ghost for a specified amount of time
+            StartCoroutine(FreezeForSeconds(seconds));
+        }
+    }
+
+    IEnumerator FreezeForSeconds(float seconds)
+    {
+        isFrozen = true;
+        agent.isStopped = true; // Stop the ghost's movement
+        yield return new WaitForSeconds(seconds);
+        agent.isStopped = false; // Resume the ghost's movement
+        isFrozen = false;
+    }
 }
