@@ -8,12 +8,6 @@ public class PlayerHealth : MonoBehaviour
     public GameObject heart3;
     public GameObject heart4;
 
-    
-
-    void Start()
-    {
-    }
-
     private void Update()
     {
         if (GameVariables.lives == 3)
