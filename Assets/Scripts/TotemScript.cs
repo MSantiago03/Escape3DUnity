@@ -43,7 +43,6 @@ public class TotemScript : MonoBehaviour
         // Check if the raycast hits an object within the pickUpDistance
         if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out hit, pickUpDistance))
         {
-            Debug.Log("hit");
             // Check if the hit object is the start button
             if (hit.collider.CompareTag("Totem"))
             {

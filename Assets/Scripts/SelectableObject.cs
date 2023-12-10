@@ -39,7 +39,6 @@ public class SelectableObject : MonoBehaviour
                 if (newHighlight.GetComponent<MeshRenderer>().material != highlightMaterial)
                 {
                     originalMaterialHighlight = newHighlight.GetComponent<MeshRenderer>().material;
-                    //Debug.Log("original " + originalMaterialHighlight);
                     newHighlight.GetComponent<MeshRenderer>().material = highlightMaterial;
 
                 }

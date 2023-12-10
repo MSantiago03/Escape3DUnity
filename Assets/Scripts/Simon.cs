@@ -48,14 +48,12 @@ public class Simon : MonoBehaviour
     public void CreatePlayerList(int buttonID)
     {
         buttonsClicked.Add(buttonID);
-        Debug.Log("buttonsClicked count " + buttonsClicked.Count);
 
         // Check for a mismatch in the sequence
         for (int i = 0; i < buttonsClicked.Count; i++)
         {
             if (buttonsToClick[i] != buttonsClicked[i])
             {
-                Debug.Log("Mismatch at index " + i);
                 StartCoroutine(PlayerLost());
                 return;
             }
@@ -123,10 +121,8 @@ private IEnumerator EnableStartButtonAfterDelay(float delay)
     {
         buttonsInteractable = false;
         buttonsClicked.Clear();
-        Debug.Log("nextRound");
         yield return new WaitForSeconds(1f);
         buttonsToClick.Add(Random.Range(0, buttons.Count));
-        Debug.Log("StartNext buttonsToClick[i]" + buttonsToClick[0]);
         foreach (int index in buttonsToClick)
         {
             audioSource.PlayOneShot(clickSound);
@@ -155,7 +151,6 @@ private IEnumerator EnableStartButtonAfterDelay(float delay)
     public IEnumerator ButtonHighlightAll(GameObject button)
     {
         
-        Debug.Log("highlight in red");
 
         // Get the button renderer
         Renderer renderer = button.GetComponent<Renderer>();
@@ -182,7 +177,6 @@ private IEnumerator EnableStartButtonAfterDelay(float delay)
 
     public IEnumerator ButtonHighlight(int buttonID)
     {
-        Debug.Log("highlight");
 
         Renderer renderer = buttons[buttonID].GetComponent<Renderer>();
         Color originalColor = renderer.material.color;
@@ -231,13 +225,11 @@ private IEnumerator EnableStartButtonAfterDelay(float delay)
             if (hit.collider.CompareTag("SimonButton") && buttonsInteractable)
             {
                 
-                Debug.Log("Clicked on another button");
                 // If the hit object is one of the buttons, simulate a click
                 GameObject hitObject = hit.collider.gameObject;
                 int buttonIndex = buttons.IndexOf(hitObject);
 
 
-                Debug.Log("index is" + buttonIndex);
 
                 if (buttonIndex != -1)
                 {

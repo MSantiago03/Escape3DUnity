@@ -28,7 +28,6 @@ public class Passcode : MonoBehaviour
         }
         else
         {
-            print("Incorrect code. Try again.");
             UiText.color = Color.red;
         }
     }
@@ -37,10 +36,8 @@ public class Passcode : MonoBehaviour
     {
         foreach (var chest in chests)
         {
-            print("moving");
-            print($"Original Position: {chest.transform.position}");  
+       
             chest.transform.position = new Vector3(chest.transform.position.x, chest.transform.position.y, chest.transform.position.z + 2.5f);
-            print($"New Position: {chest.transform.position}");
         }
     }
 
