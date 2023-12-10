@@ -1,9 +1,5 @@
-using UnityEngine;
 using System.Collections;
-
-// Require a character controller to be attached to the same game object
-[RequireComponent (typeof(CharacterMotor))]
-[AddComponentMenu ("Character/FPS Input Controller")]
+using UnityEngine;
 
 public class FPSInputController : MonoBehaviour
 {
@@ -12,6 +8,7 @@ public class FPSInputController : MonoBehaviour
     public AudioClip walkingSound;
     public AudioClip jumpingSound;
 
+    private Coroutine walkingSoundCoroutine;
     private Collider myCollider;
 
     // Use this for initialization
@@ -20,29 +17,33 @@ public class FPSInputController : MonoBehaviour
         motor = GetComponent<CharacterMotor>();
         audioSource = GetComponent<AudioSource>();
         myCollider = gameObject.GetComponent<Collider>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Get the input vector from keyboard or analog stick
+        // Get the input vector from the keyboard or analog stick
         Vector3 directionVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+
+        // Check for jumping before updating motor.inputJump
+        bool jumping = Input.GetButton("Jump");
 
         if (directionVector != Vector3.zero)
         {
-            // ... (rest of your existing code)
-
             // Play walking sound when moving
             if (!audioSource.isPlaying && walkingSound != null)
             {
                 audioSource.clip = walkingSound;
                 audioSource.Play();
+
+                if (jumping)
+                {
+                    walkingSoundCoroutine = StartCoroutine(PauseWalkingSound());
+                }
             }
         }
         else
         {
-            // Stop walking sound when not moving
             if (audioSource.isPlaying)
             {
                 audioSource.Stop();
@@ -51,14 +52,22 @@ public class FPSInputController : MonoBehaviour
 
         // Apply the direction to the CharacterMotor
         motor.inputMoveDirection = transform.rotation * directionVector;
-        motor.inputJump = Input.GetButton("Jump");
+        motor.inputJump = jumping;
 
         // Play jumping sound when jumping
-        if (motor.inputJump && jumpingSound != null && !audioSource.isPlaying)
+        if (jumping && jumpingSound != null && !audioSource.isPlaying)
         {
+            walkingSoundCoroutine = StartCoroutine(PauseWalkingSound());
             audioSource.clip = jumpingSound;
             audioSource.Play();
         }
     }
-}
 
+    IEnumerator PauseWalkingSound()
+    {
+        audioSource.clip = walkingSound;
+        audioSource.Pause();
+        // Wait for a short duration (adjust as needed)
+        yield return new WaitForSeconds(2f);
+    }
+}
