@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class GhostControllerAi : MonoBehaviour
 {
@@ -25,7 +26,9 @@ public class GhostControllerAi : MonoBehaviour
 
     private NavMeshAgent agent;
     private int currentPatrolIndex = 0;
-    
+
+    public Image flashPanel;  // Reference to a UI Image component
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -35,6 +38,7 @@ public class GhostControllerAi : MonoBehaviour
         {
             agent.SetDestination(patrolPoints[currentPatrolIndex].position);
         }
+
     }
 
     private void Update()
@@ -100,6 +104,7 @@ public class GhostControllerAi : MonoBehaviour
         {
             GameVariables.lives -= 1;
 
+
             // Freeze the ghost for a specified amount of time
             StartCoroutine(FreezeForSeconds(seconds));
         }
@@ -113,4 +118,5 @@ public class GhostControllerAi : MonoBehaviour
         agent.isStopped = false; // Resume the ghost's movement
         isFrozen = false;
     }
+
 }

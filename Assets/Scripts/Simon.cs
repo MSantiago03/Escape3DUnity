@@ -42,7 +42,7 @@ public class Simon : MonoBehaviour
     {
         letter.SetActive(false);
         audioSource = gameObject.AddComponent<AudioSource>();
-        InvokeRepeating("GenerateTextBox", 1800f, 1800f); // Invoke GenerateTextBox every 1800 seconds (30 minutes)
+        InvokeRepeating("GenerateTextBox", 900f, 900f); // Invoke GenerateTextBox every 1800 seconds (30 minutes)
     }
 
     public void CreatePlayerList(int buttonID)
@@ -116,7 +116,7 @@ private IEnumerator EnableStartButtonAfterDelay(float delay)
         audioSource.PlayOneShot(successSound);
         letter.SetActive(true);
         ListButtonCoroutines();
-        textBoxPrefab.SetActive(true);
+        textBoxPrefab.SetActive(false);
     }
 
     public IEnumerator StartNextRound()
