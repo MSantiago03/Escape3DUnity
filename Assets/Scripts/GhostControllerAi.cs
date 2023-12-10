@@ -13,9 +13,12 @@ public class GhostControllerAi : MonoBehaviour
     public float chaseRange = 10f;
     // Audio Clip
     public AudioSource audioSource;
+    public AudioClip hit;
+    public AudioClip ghost;
+
 
     // Seconds Ghost is frozen for
-    public float seconds = 4; 
+    public float seconds = 4;
 
     //used to allow ghost to move
     public bool isSummoned = false;
@@ -39,6 +42,8 @@ public class GhostControllerAi : MonoBehaviour
             agent.SetDestination(patrolPoints[currentPatrolIndex].position);
         }
 
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     private void Update()
@@ -52,7 +57,7 @@ public class GhostControllerAi : MonoBehaviour
                 if (!isMusicOn)
                 {
                     isMusicOn = true;
-                    audioSource = GetComponent<AudioSource>();
+                    audioSource.clip = ghost;
                     audioSource.Play();
                 }
 
@@ -103,7 +108,8 @@ public class GhostControllerAi : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && !isFrozen)
         {
             GameVariables.lives -= 1;
-
+            audioSource.PlayOneShot(hit);
+            //audioSource.Play();
 
             // Freeze the ghost for a specified amount of time
             StartCoroutine(FreezeForSeconds(seconds));
