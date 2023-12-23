@@ -7,6 +7,8 @@ public class Passcode : MonoBehaviour
     // Correct passcode
     string Code = "9382";
 
+    bool isDone = false;
+
     // Current inputted passcode
     string Nr = null;
 
@@ -17,7 +19,7 @@ public class Passcode : MonoBehaviour
     public GameObject[] chests;
 
     // Distance to move the chests when the correct passcode is entered
-    public float moveDistance = 10.0f;
+    public float moveDistance = 2.0f;
 
     // Speed at which the chests move
     public float moveSpeed = 20.0f;
@@ -36,7 +38,7 @@ public class Passcode : MonoBehaviour
     public void Enter()
     {
         // Check if the entered passcode is correct
-        if (Nr == Code)
+        if (Nr == Code && isDone == false)
         {
             // Activate success message and move the chests
             success.SetActive(true);
@@ -44,6 +46,7 @@ public class Passcode : MonoBehaviour
 
             // Change UI text color to green
             UiText.color = Color.green;
+            isDone = true;
         }
         else
         {
@@ -59,7 +62,7 @@ public class Passcode : MonoBehaviour
         foreach (var chest in chests)
         {
             // Update the chest's position along the z-axis
-            chest.transform.position = new Vector3(chest.transform.position.x, chest.transform.position.y, chest.transform.position.z + moveDistance);
+            chest.transform.position = new Vector3(chest.transform.position.x - moveDistance, chest.transform.position.y, chest.transform.position.z + 1.0f);
         }
     }
 
